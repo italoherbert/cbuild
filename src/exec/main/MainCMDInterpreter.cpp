@@ -55,6 +55,13 @@ void MainCMDInterpreter::configure( bool& workingDirFound, bool& scriptFileFound
     if ( workingDir != "" ) {
         workingDir = io::path::absoluteResolvePath( workingDir );
         workingDir = io::path::removeSeparatorFromDirIfNeed( workingDir );
+
+        if ( !io::fileExists( workingDir ) ) {
+            messagebuilder b( errors::WORKING_DIR_NOT_FOUND );
+            b << workingDir;
+            throw st_error( nullptr, b.str() );
+        }
+
         shell::setWorkingDir( workingDir );
 
         workingDirFound = true;
@@ -62,6 +69,12 @@ void MainCMDInterpreter::configure( bool& workingDirFound, bool& scriptFileFound
         if ( scriptFile != "" ) {
             workingDir = io::path::dirPath( io::path::absoluteResolvePath( scriptFile ) );
             workingDir = io::path::removeSeparatorFromDirIfNeed( workingDir );
+
+            if ( !io::fileExists( workingDir ) ) {
+                messagebuilder b( errors::WORKING_DIR_NOT_FOUND );
+                b << workingDir;
+                throw st_error( nullptr, b.str() );
+            }
 
             scriptFile = io::path::fileOrDirName( scriptFile );
             shell::setWorkingDir( workingDir );

@@ -1,8 +1,8 @@
-$version=1.6
+$version=1.7
 $arch=x64
 $so=windows
 
-$xutest_version=1.1
+$xutest_version=1.2
 
 compiler=x86_64-w64-mingw32-g++-win32
 

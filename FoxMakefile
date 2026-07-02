@@ -4,10 +4,10 @@
     em ".."
 ##
 
-$version=1.6
+$version=1.7
 $arch=x64
 
-$xutest_version=1.1
+$xutest_version=1.2
 
 IF os == "windows"
     $so=windows
@@ -109,7 +109,7 @@ task finish after
 
         @.\$(bdir)\foxmake.exe build --working-dir=projetos/ifprog --no-resume
         
-        @.\$(bdir)\foxmake.exe testbuild --working-dir=projetos/test-helloworld --no-resume
+        @.\$(bdir)\foxmake.exe testbuild --working-dir=projetos/testhelloworld --no-resume
         
         @.\$(bdir)\foxmake.exe testbuild --working-dir=projetos/static-lib-math --no-resume
 
@@ -120,7 +120,7 @@ task finish after
 
         @./$(bdir)/foxmake build --working-dir=projetos/ifprog --no-resume
         
-        @./$(bdir)/foxmake testbuild --working-dir=projetos/test-helloworld --no-resume
+        @./$(bdir)/foxmake testbuild --working-dir=projetos/testhelloworld --no-resume
         
         @./$(bdir)/foxmake testbuild --working-dir=projetos/static-lib-math --no-resume
 
