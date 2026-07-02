@@ -44,8 +44,8 @@
                 
                 <blockquote>
                     <p>Arquivo ZIP: 
-                        <a href="https://github.com/italolab/foxmake/releases/download/v1.6/foxmake-1.6-windows-x64.zip">
-                            foxmake-1.6-windows-x64.zip
+                        <a href="https://github.com/italolab/foxmake/releases/download/v1.7/foxmake-1.7-windows-x64.zip">
+                            foxmake-1.7-windows-x64.zip
                         </a>
                     </p>
                 </blockquote>
@@ -54,13 +54,13 @@
                 
                 <blockquote>
                     <p>Arquivo DEB: 
-                        <a href="https://github.com/italolab/foxmake/releases/download/v1.6/foxmake-1.6-linux-x64.deb">
-                            foxmake-1.6-linux-x64.deb
+                        <a href="https://github.com/italolab/foxmake/releases/download/v1.7/foxmake-1.7-linux-x64.deb">
+                            foxmake-1.7-linux-x64.deb
                         </a>
                     </p>
                     <p>Arquivo TAR.GZ: 
-                        <a href="https://github.com/italolab/foxmake/releases/download/v1.6/foxmake-1.6-linux-x64.tar.gz">
-                            foxmake-1.6-linux-x64.tar.gz
+                        <a href="https://github.com/italolab/foxmake/releases/download/v1.7/foxmake-1.7-linux-x64.tar.gz">
+                            foxmake-1.7-linux-x64.tar.gz
                         </a>
                     </p>
                 </blockquote>
@@ -74,13 +74,13 @@
                         </a>
                     </p>
                     <p>Arquivo ZIP:
-                        <a href="https://github.com/italolab/foxmake/archive/refs/tags/v1.6.zip">
-                            foxmake-v1.6.zip
+                        <a href="https://github.com/italolab/foxmake/archive/refs/tags/v1.7.zip">
+                            foxmake-v1.7.zip
                         </a>
                     </p>
                     <p> Arquivo TAR.GZ:
-                        <a href="https://github.com/italolab/foxmake/archive/refs/tags/v1.6.tar.gz">
-                            foxmake-v1.6.tar.gz
+                        <a href="https://github.com/italolab/foxmake/archive/refs/tags/v1.7.tar.gz">
+                            foxmake-v1.7.tar.gz
                         </a>
                     </p>                
                 </blockquote>                    
@@ -89,21 +89,19 @@
 
         <article>
             <header>
-                <h3>Notas da versão 1.6</h3>
+                <h3>Notas da versão 1.7</h3>
             </header>
 
-            <p>Consertados problemas com instruções if e diretivas if e tratada 
-                limitação com o símbolo $ como caractere. Antes, o símbolo $ deveria 
-                ser precedido de \$, mas no caso de utilização no windows em um 
-                caminho de arquivo ou diretório, havia problema de compatibilidade. 
-                Agora, é necessário \\\$, três contra-barras.
+            <p>Atualizado o xutest para versão 1.2, onde foi consertado problema com o 
+                caminho relativo de arquivo de programa principal que fazia referência 
+                a arquivos cabeçalhos com testcases implementados neles. Não era um 
+                erro crítico, dado que o foxmake só utiliza caminhos absolutos para 
+                compilar e linkar. Logo, o erro só aparecia quanto o xutest era 
+                utilizado sem o foxmake!
             </p>
 
-            <p>Foi tratada também a limitação da pasta de testes ter de não ser filha 
-                da pasta de código fonte. Agora, a pasta de teste e suas subpastas 
-                ão ignoradas na compilação do código fonte, caso a mesma seja uma das 
-                subpastas da pasta de código fonte.
-            </p>            
+            <p>Foi consertado problema com a possibilidade de o usuário informar um 
+                diretório inexistente ou um arquivo no --working-dir</p>
         </article>
 
         <article id="how-install">
