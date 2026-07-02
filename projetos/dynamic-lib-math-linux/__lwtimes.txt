@@ -1,4 +1,0 @@
-/home/italo/workspace-cpp/foxmake/projetos/dynamic-lib-math-linux/src/libmath.cpp=1782485815
-/home/italo/workspace-cpp/foxmake/projetos/dynamic-lib-math-linux/src/libmath.h=1782485815
-/home/italo/workspace-cpp/foxmake/projetos/dynamic-lib-math-linux/test/libmathtest.h=1782485815
-/home/italo/workspace-cpp/foxmake/projetos/dynamic-lib-math-linux/test/main.cpp=1782551666
