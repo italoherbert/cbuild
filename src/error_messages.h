@@ -41,6 +41,7 @@ namespace errors {
     const string TRY_DELETE_NO_RECURSIVE_NO_EMPTH_DIR = "Tetativa de remover arquivos de forma não recursiva com pasta(s) não vazia(s).";
 
     const string WORKING_DIR_NOT_FOUND = "Diretório de trabalho não encontrado: \"$1\"";
+    const string WORKING_DIR_IS_NOT_A_DIRECTORY = "O diretório de trabalho informado não é um diretório: \"$1\"";
     const string BASE_DIRECTORY_NOT_FOUND = "Diretório base não encontrado: \"$1\"\nVerifique a propriedade \"$2\"";
     const string SRC_DIRECTORY_NOT_EXISTS = "O diretório de origem não existe: \"$1\"";
     const string DEST_DIRECTORY_NOT_EXISTS = "O diretório de destino não existe: \"$1\"";

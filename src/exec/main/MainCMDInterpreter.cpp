@@ -62,6 +62,12 @@ void MainCMDInterpreter::configure( bool& workingDirFound, bool& scriptFileFound
             throw st_error( nullptr, b.str() );
         }
 
+        if ( !io::isDir( workingDir ) ) {
+            messagebuilder b( errors::WORKING_DIR_IS_NOT_A_DIRECTORY );
+            b << workingDir;
+            throw st_error( nullptr, b.str() );
+        }
+
         shell::setWorkingDir( workingDir );
 
         workingDirFound = true;
@@ -72,6 +78,12 @@ void MainCMDInterpreter::configure( bool& workingDirFound, bool& scriptFileFound
 
             if ( !io::fileExists( workingDir ) ) {
                 messagebuilder b( errors::WORKING_DIR_NOT_FOUND );
+                b << workingDir;
+                throw st_error( nullptr, b.str() );
+            }
+
+            if ( !io::isDir( workingDir ) ) {
+                messagebuilder b( errors::WORKING_DIR_IS_NOT_A_DIRECTORY );
                 b << workingDir;
                 throw st_error( nullptr, b.str() );
             }
