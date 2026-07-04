@@ -27,6 +27,7 @@ namespace errors {
     const string IS_NOT_A_DEFAULT_TASK = "A tarefa \"$1\" não é uma tarefa default. Logo, não pode ser configurada assim.";
 
     const string SCRIPT_FILE_NOT_FOUND = "Arquivo de script não encontrado: \"$1\"";
+    const string SCRIPT_FILE_IS_A_DIRECTORY = "O arquivo de script informado é um diretório: \"$1\"";
     const string FILE_OR_DIRECTORY_NOT_CREATED = "Não foi possível criar o diretório: \"$1\"";
     const string FILE_OR_DIRECTORY_NOT_COPIED_FOR_BUILD_FOLDER = "não foi possível cópiar o arquivo ou pasta: \"$1\" para a pasta de build.";
     const string FILE_OR_FOLDER_NOT_FOUND = "Arquivo ou diretório não encontrado: \"$1\"";

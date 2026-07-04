@@ -19,9 +19,6 @@ namespace filesystem = std::filesystem;
 io_error::io_error( string msg ) : runtime_error( msg ) {}
 joker_error::joker_error( string msg ) : io_error( msg ) {}
 
-#include <iostream>
-using namespace std;
-
 namespace io {
 
     ByNameFileFilter* by_name_file_filter( string fileName ) {

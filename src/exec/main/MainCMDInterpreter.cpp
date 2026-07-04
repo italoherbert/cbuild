@@ -72,7 +72,7 @@ void MainCMDInterpreter::configure( bool& workingDirFound, bool& scriptFileFound
 
         workingDirFound = true;
     } else {
-        if ( scriptFile != "" ) {
+        if ( scriptFile != "" && !io::isDir( scriptFile ) ) {
             workingDir = io::path::dirPath( io::path::absoluteResolvePath( scriptFile ) );
             workingDir = io::path::removeSeparatorFromDirIfNeed( workingDir );
 
@@ -88,7 +88,7 @@ void MainCMDInterpreter::configure( bool& workingDirFound, bool& scriptFileFound
                 throw st_error( nullptr, b.str() );
             }
 
-            scriptFile = io::path::fileOrDirName( scriptFile );
+            scriptFile = io::path::fileOrDirName( scriptFile );            
             shell::setWorkingDir( workingDir );
         } else {
             workingDir = shell::getWorkingDir();
@@ -96,27 +96,41 @@ void MainCMDInterpreter::configure( bool& workingDirFound, bool& scriptFileFound
 
         workingDirFound = false;
     }
-
+    
     if ( scriptFile == "" )
         scriptFile = consts::DEFAULT_SCRIPT_FILE_NAME;
-
+    
     scriptFile = io::path::absoluteResolvePath( scriptFile );
 
     if ( !io::fileExists( scriptFile ) && io::fileExists( scriptFile+".txt" ) )
         scriptFile += ".txt";
+
+    if ( io::isDir( scriptFile ) ) {        
+        messagebuilder b( errors::SCRIPT_FILE_IS_A_DIRECTORY );
+        b << scriptFile;
+        throw st_error( nullptr, b.str() );
+    }
    
     scriptFileFound = true;
     
     if ( !io::fileExists( scriptFile ) && !io::fileExists( scriptFile+".txt" ) ) {
         messagebuilder b2( errors::SCRIPT_FILE_NOT_FOUND );
         b2 << scriptFile;
-        out << output::yellow( b2.str() ) << endl;
+        out << output::yellow( b2.str() ) << endl;        
 
-        if ( !workingDirFound )
-            throw st_error( nullptr, errors::NO_SCRIPT_FILE_AND_NO_WORKING_DIR );
+        scriptFileFound = false;
+    }    
+
+    if ( scriptFileFound && io::isDir( scriptFile ) ) {        
+        messagebuilder b2( errors::SCRIPT_FILE_IS_A_DIRECTORY );
+        b2 << scriptFile;
+        out << output::yellow( b2.str() ) << endl;        
 
         scriptFileFound = false;
     }
+
+    if ( !scriptFileFound && !workingDirFound )
+        throw st_error( nullptr, errors::NO_SCRIPT_FILE_AND_NO_WORKING_DIR );
 }
 
 void MainCMDInterpreter::interpretsMainScript( bool workingDirFound, bool scriptFileFound, void* mgr ) {
