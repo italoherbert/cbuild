@@ -102,6 +102,8 @@
 
             <p>Foi consertado problema com a possibilidade de o usuário informar um 
                 diretório inexistente ou um arquivo no --working-dir</p>
+            <p>Foi consertado problema com a possibilidade do usuário informar um 
+                diretório no --script</p>
         </article>
 
         <article id="how-install">
@@ -154,7 +156,19 @@
             download do pacote .deb: foxmake-x.x-linux-x64.deb (Onde x.x é a versão) 
             e executar o seguinte comando:</p>
 
-<pre class="line-numbers"><code>sudo dpkg -i foxmake-x.x-linux-x64.deb</code></pre>
+<pre><code>sudo dpkg -i foxmake-x.x-linux-x64.deb</code></pre>
+
+            <section class="d-flex justify-content-center">
+                <div class="warning">
+                    <h5>Atenção:</h5>
+                    <small>
+                        <p>Se já tiver instalado o xutest ".deb", deve desinstalá-lo antes 
+                            de instalar o foxmake. Pode utilizar o seguinte comando: </p>
+
+<pre><code>sudo dpkg -r xutest</code></pre>
+                    </small>
+                </div>
+            </section>
 
             <p>Se preferir a versão .tar.gz, basta baixar o arquivo: 
             foxmake-x.x-linux-x64.tar.gz, descompactar, e copiar o executável "foxmake" 
