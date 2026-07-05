@@ -445,13 +445,14 @@ test.dir=test
                 ser configurada, muitas vezes, no lugar do comando <b>cp</b> para copiar arquivos, 
                 especificamente, para pasta build. Veja o exemplo abaixo: </p>
 
-<pre class="line-numbers"><code>build.files=libmy.dll config/
+<pre class="line-numbers"><code>build.files=libmy.dll "config files/"
 </code></pre>
 
                 <p>O exemplo acima copia a biblioteca libmy.dll que deve estar na raiz do projeto para 
-                a pasta "build". Copia também a pasta "config" e todo o seu conteúdo para a pasta 
-                "build". No entanto, não seria válido fazer algo como: "config/*" ou "*.dll". Os coringas 
-                não são interpretados neste comando.</p>
+                a pasta "build". Copia também a pasta "config files" e todo o seu conteúdo para a pasta 
+                "build" e as aspas são necessárias para informar um caminho de pasta com espaço. No 
+                entanto, não seria válido fazer algo como: "config/*" ou "*.dll". Os coringas não são 
+                interpretados neste comando.</p>
 
                 <p>As propriedades: <b>compiler.params, linker.params e archiver.params</b> podem ser 
                 utilizadas para passar parâmetros/opções extras aos comandos correspondentes. 
@@ -953,7 +954,7 @@ endtask
 <pre class="line-numbers"><code>rm -r dir/*.*</code></pre>
         
                     <p>O exemplo acima remove todos os arquivos com qualquer extensão, 
-                    excerto as pastas e arquivos sem extensão, do diretório "dir"</p>
+                    excerto arquivos sem extensão, do diretório "dir"</p>
 
 <pre class="line-numbers"><code>rm -r dir/lib*</code></pre>
 
@@ -974,7 +975,7 @@ endtask
 
                     <p>O comando acima remove todos os arquivos com qualquer extensão e 
                     cujo nome começar com "lib", terminar com "lib" ou tiver "lib" no meio. 
-                    Não remove pastas nem arquivos sem extensão.</p>
+                    Não remove arquivos sem extensão.</p>
 
 <pre class="line-numbers"><code>rm -r dir/lib*.txt</code></pre>
 
